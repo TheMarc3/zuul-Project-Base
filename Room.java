@@ -12,8 +12,10 @@ import java.util.Iterator;
  * connected to other rooms via exits.  For each existing exit, the room 
  * stores a reference to the neighboring room.
  * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @original author Michael Kölling and David J. Barnes
+ * 
+ * @author Marc Weitze
+ * @version 3/9/2020
  */
 
 public class Room 
