@@ -1,26 +1,27 @@
-import java.util.Set;
-import java.util.HashMap;
-import java.util.Iterator;
-
-/**
- * Class Room - a room in an adventure game.
- *
- * This class is part of the "World of Zuul" application. 
- * "World of Zuul" is a very simple, text based adventure game.  
- *
- * A "Room" represents one location in the scenery of the game.  It is 
- * connected to other rooms via exits.  For each existing exit, the room 
- * stores a reference to the neighboring room.
- * 
- * @original author Michael Kölling and David J. Barnes
- * 
- * @author Marc Weitze
- * @version 3/9/2020
+    import java.util.Set;
+    import java.util.HashMap;
+    import java.util.Iterator;
+    
+    /**
+     * Class Room - a room in an adventure game.
+     *
+     * This class is part of the "World of Zuul" application. 
+     * "World of Zuul" is a very simple, text based adventure game.  
+     *
+     * A "Room" represents one location in the scenery of the game.  It is 
+     * connected to other rooms via exits.  For each existing exit, the room 
+     * stores a reference to the neighboring room.
+     * 
+     * @original author Michael Kölling and David J. Barnes
+     * 
+     * @author Marc Weitze
+ * @version 3/22/2020
  */
 
 public class Room 
 {
     private String description;
+    private String roomName;
     private HashMap<String, Room> exits;        // stores exits of this room.
 
     /**
@@ -62,7 +63,10 @@ public class Room
      */
     public String getLongDescription()
     {
-        return "You are " + description + ".\n" + getExitString();
+        if(getName().equals("room16"))
+            return "You are in a " + description + ".";
+        else
+            return "You are in a " + description + ".\n" + getExitString();
     }
 
     /**
@@ -74,7 +78,8 @@ public class Room
     {
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();
-        for(String exit : keys) {
+        for(String exit : keys)
+        {
             returnString += " " + exit;
         }
         return returnString;
@@ -89,6 +94,21 @@ public class Room
     public Room getExit(String direction) 
     {
         return exits.get(direction);
+    }
+    /**
+     * sets the String roomName to String name
+     * @param name The desired name to be used
+     */
+    public void setName(String name)
+    {
+        roomName = name;
+    }
+    /**
+     * returns the String roomName
+     */
+    public String getName()
+    {
+        return roomName;
     }
 }
 

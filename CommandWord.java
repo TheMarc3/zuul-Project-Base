@@ -5,14 +5,14 @@
  * @author Michael Kölling and David J. Barnes
  * 
  * @author Marc Weitze
- * @version 3/9/2020
+ * @version 3/22/2020
  */
 public enum CommandWord
 {
     // A value for each command word along with its
     // corresponding user interface string.
     GO("go"), QUIT("quit"), HELP("help"), LOOK("look"), 
-    UNKNOWN("?");
+    UNKNOWN("?"), TIME("time");
     
     // The command string.
     private String commandString;
